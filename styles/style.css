@@ -12,20 +12,57 @@ html, body {
   position: relative;
 }
 
-main>div {
-  position:absolute;
-  height:0%;
-  width:0%;
-}
-
-main>div.anders {
-  position:absolute;
-  z-index:8;
-  background-color: rgba(0, 0, 0, .8);
+.backdrop {
+  position:fixed;
+  background-color: rgba(0, 0, 0, 0);
   height:100%;
   width:100%;
   top:0;
-  opacity: 0;
+  transition: 1s;
+  pointer-events: none;
+  z-index: 8;
+}
+
+.backdrop.anders {
+  background-color: rgba(0, 0, 0, .8);
+  transition: 1s;
+  pointer-events: auto;
+}
+
+.menu {
+  background-color: #f2f2f2;
+  position:fixed;
+  height:100%;
+  width:0%;
+  right:0;
+  transition: width 1s;
+  z-index: 9;
+  top:0;
+}
+
+.menu.anders {
+  width:80%;
+}
+
+nav ul {
+  list-style: none;
+  position: fixed;
+  margin-top: -.3em; /* Om de ul list mooi op zijn plek te zetten */
+  font-weight: 600;
+}
+
+li {
+  display: flex;
+  margin-top:2em;
+  white-space: nowrap;
+  margin-left:-.5em;
+}
+
+li img {
+  position:relative;
+  height:1.5em;
+  width:auto;
+  margin-right: .8em;
 }
 
 header {
@@ -62,12 +99,12 @@ h1:first-of-type {
 
 }
 
-img:first-of-type {
-  display: block;
+.warioware {
   width:100%;
   height:auto;
-  justify-content: center;
 }
+
+
 
 /*************** Button ****************/
 
@@ -203,12 +240,16 @@ section:nth-of-type(3)>button {
   padding-left:1.5em;
   padding-right:1.5em;
   cursor: pointer;
+  display: flex;
+  justify-content: left;
 }
 
 section:nth-of-type(3)>img {
   position: absolute;
   z-index: 4;
   top:3.5em;
+  max-height:15em;
+  max-width: 23em;
 }
 
 section:nth-of-type(3)>h1 {
@@ -216,7 +257,6 @@ section:nth-of-type(3)>h1 {
   position:absolute;
   top:13em;
   width:80%;
-  text-align: center;
 }
 
 section:nth-of-type(3)>button>img {
@@ -260,6 +300,7 @@ section:nth-of-type(4)>article {
 
 section:nth-of-type(4)>article>img {
   border-radius: 0.5em;
+  width:100%;
 }
 
 /********** Footer *********/
@@ -272,7 +313,7 @@ footer {
   margin-top: 5em;
 }
 
-footer>button {
+footer button {
   color: #1660a0;
   background-color: #f2f2f2;
   border-style: none;
@@ -281,3 +322,6 @@ footer>button {
   position: relative;
 }
 
+footer>button.anders {
+  height:30em;
+}
