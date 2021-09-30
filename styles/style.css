@@ -12,6 +12,15 @@ html, body {
   position: relative;
 }
 
+:focus {
+  outline: 3px dashed black;
+  outline-offset: 2px;
+}
+
+:active {
+  outline:0px;
+}
+
 .backdrop {
   position:fixed;
   background-color: rgba(0, 0, 0, 0);
@@ -79,6 +88,15 @@ header {
 header>img {
   max-height: 3em;
   max-width: 7em;
+  cursor: pointer;
+}
+
+header>img:active {
+  outline:none;
+}
+
+header>img:focus {
+  outline:none;
 }
 
 header>img+img {
@@ -116,23 +134,31 @@ section:first-of-type {
 
 @keyframes bounce-animation {
   0% {
-    transform: scale(1);
     background-color: #e60012;
+    transform: scaleY(1);
   }
-  70% {
-    transform: scale(1.05);
+  40% {
+    transform:scaleY(1.2)
   }
+  
+  60% {
+    transform: scaleY(1.5);
+    transform: scaleX(1.05);
+  }
+
   100% {
-    transform: scale(1.02);
     background-color: #c51621;
+    transform: scaleY(1.2);
+    transform: scaleX(1);
+    transform: scale(1.02);
   }
 }
 
 section:first-of-type button:hover {
   animation-name: bounce-animation;
   animation-timing-function: ease-out;
-  animation-duration: .4s;
-  transition-delay: .4s;
+  animation-duration: .5s;
+  transition-delay: .5s;
   transform: scale(1.02);
   background-color: #c51621;
 }
@@ -158,6 +184,10 @@ section:first-of-type>button {
   display: flex;
   margin-bottom: 2em;
   position:relative;
+  animation-name: backbounce-animation;
+  animation-timing-function: linear;
+  animation-duration: .1s;
+  transition: .1s;
 }
 
 div {
@@ -188,6 +218,7 @@ section:nth-of-type(2)>div>img {
   height:100%;
   width:auto;
   border-radius: .5em;
+  cursor: pointer;
 }
 
 section:nth-of-type(2)>div>div {
@@ -196,6 +227,11 @@ section:nth-of-type(2)>div>div {
   height:2px;
   position:absolute;
   bottom: -6em;
+}
+
+section:nth-of-type(2)>div>h2:hover {
+  color:#e60012;
+  cursor: pointer;
 }
 
 section:nth-of-type(2)>p {
@@ -209,12 +245,20 @@ section:nth-of-type(2)>p {
     transform: scale(1);
     background-color: rgba(0, 0, 0, .5);
   }
-  70% {
-    transform: scale(1.05);
+  40% {
+    transform:scaleY(1.2)
   }
+  
+  60% {
+    transform: scaleY(1.5);
+    transform: scaleX(1.05);
+  }
+
   100% {
-    transform: scale(1.02);
     background-color: rgba(0, 0, 0, .65); 
+    transform: scaleY(1.2);
+    transform: scaleX(1);
+    transform: scale(1.02);
   }
 }
 
@@ -242,6 +286,7 @@ section:nth-of-type(3)>button {
   cursor: pointer;
   display: flex;
   justify-content: left;
+  transition: .1s;
 }
 
 section:nth-of-type(3)>img {
@@ -322,6 +367,40 @@ footer button {
   position: relative;
 }
 
-footer>button.anders {
-  height:30em;
+footer ul {
+  display: none;
+  background-color: #f2f2f2;
+  margin-top: 2px;
+  margin-bottom: 0;
+  padding-bottom: 2em;
+}
+
+footer ul.anders {
+  display:block;
+}
+
+footer ul li h2 {
+  margin-top:-.2em;
+  margin-bottom: -.2em;
+  font-weight: 300;
+}
+
+footer ul li h2:hover {
+  color: rgb(35, 149, 255);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+footer div {
+  background-color: #484848;
+  width: 100%;
+  height: 20em;
+  margin-top: -0%; /*Om de div van de footer en de button aan elkaar te krijgen.*/
+}
+
+/* Pagina 2 */
+
+.linkaw {
+  position: static;
+  width:100%;
 }

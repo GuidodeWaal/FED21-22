@@ -1,26 +1,26 @@
 // JavaScript Document
-var hamburger
-hamburger = 
-  document.querySelector('header>img+img');
-hamburger.addEventListener("click", uitklap);
+
+const hamburger = document.querySelector('header>img+img');
+const backdrop = document.querySelector(".backdrop")
+const menu = document.querySelector(".menu")
+const imgtab = document.querySelector("section:nth-of-type(2)>div>img")
+const footer = document.querySelector("footer button")
+const footerul = document.querySelector("footer ul");
 
 function uitklap (){
-    let backdrop = 
-        document.querySelector(".backdrop")
     backdrop.classList.toggle("anders");
-
-    let menu = 
-        document.querySelector(".menu")
     menu.classList.toggle("anders");
 }
 
-var footerbutton
-footerbutton =
-    document.querySelector("footer>button");
-footerbutton.addEventListener("click", uitklap2)
-
-function uitklap2 () {
-    let button = 
-        document.querySelector ("footer>button")
-    button.classList.toggle("anders");
+function removeMenu (){
+   menu.classList.remove("anders");
+   backdrop.classList.remove("anders");
 }
+
+function footerinfo () {
+    footerul.classList.toggle("anders");
+}
+
+hamburger.addEventListener("click", uitklap);
+backdrop.addEventListener("click", removeMenu);
+footer.addEventListener("click", footerinfo);
