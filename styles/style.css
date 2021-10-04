@@ -17,10 +17,6 @@ html, body {
   outline-offset: 2px;
 }
 
-:active {
-  outline:0px;
-}
-
 .backdrop {
   position:fixed;
   background-color: rgba(0, 0, 0, 0);
